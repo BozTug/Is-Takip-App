@@ -1,0 +1,36 @@
+﻿@model IsTakip.Core.Classes.BuinessClasses.Jobfile
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Jobfile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="JobfileName" class="control-label">Jobfile Name</label>
+                <input asp-for="JobfileName" class="form-control" />
+                <span asp-validation-for="JobfileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessId" class="control-label">Customer Order No</label>
+                <select asp-for="BusinessId" class="form-control" asp-items="ViewBag.business"></select>
+                <span asp-validation-for="BusinessId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

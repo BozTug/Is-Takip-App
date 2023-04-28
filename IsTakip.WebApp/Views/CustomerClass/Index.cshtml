@@ -1,0 +1,54 @@
+﻿@model IEnumerable<IsTakip.Core.Classes.CustomerClasses.CustomerClass>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customer Classes</h1>
+
+<div class="text-center">
+    <a asp-action="Create" class="btn btn-slack text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+        New Customer Class
+    </a>
+</div>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Explanation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Explanation)
+                </td>
+                <td class="align-middle">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-dark text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        Edit
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-facebook text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="User Detail">
+                        Details
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-reddit text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row d-flex justify-content-around">
+    <a class="btn btn-outline-info col-md-5 py-5 col-12 golge mb-3" asp-controller="Customer" asp-action="Index">Customers Information</a>
+    <a class="btn btn-outline-info col-md-5 py-5 col-12 golge mb-3" asp-controller="CustomerRepresentative" asp-action="Index">Customer Representatives</a>
+</div>

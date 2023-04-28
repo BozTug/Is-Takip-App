@@ -1,0 +1,42 @@
+﻿@model IsTakip.Core.Classes.WareHouseClasses.Warehouse
+
+@{
+    ViewData["Title"] = "~Create Warehouse";
+}
+
+<h1>Create</h1>
+
+<h4>Warehouse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Explanation" class="control-label"></label>
+                <input asp-for="Explanation" class="form-control" />
+                <span asp-validation-for="Explanation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Officer" class="control-label"></label>
+                <input asp-for="Officer" class="form-control" />
+                <span asp-validation-for="Officer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfficerPhone" class="control-label">Officer Phone Number</label>
+                <input asp-for="OfficerPhone" class="form-control" />
+                <span asp-validation-for="OfficerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-slack" />
+                <a class="btn btn-pinterest" asp-action="Index">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+

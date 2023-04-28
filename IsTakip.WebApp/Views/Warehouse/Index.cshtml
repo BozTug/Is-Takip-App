@@ -1,0 +1,75 @@
+﻿@model IEnumerable<IsTakip.Core.Classes.WareHouseClasses.Warehouse>
+
+@{
+    ViewData["Title"] = "Warehouses";
+}
+
+<div class="g-sidenav-show  bg-gray-100 mx-3">
+    <div class="text-center">
+        <a asp-action="Create" class="btn btn-slack text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+            New Warehouse
+        </a>
+    </div>
+    
+    @if (ViewBag.Error is null)
+    {
+        <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0 table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Description)</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.Explanation)</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Officer)</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Officer Phone Number</th>
+                            <th class="text-secondary opacity-7"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">@item.Description</h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">@item.Explanation</p>
+                                </td>
+                                <td class="align-middle text-center text-sm">
+                                    <span class="badge badge-sm bg-gradient-success">@item.Officer</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class="text-secondary text-xs font-weight-bold">@item.OfficerPhone</span>
+                                </td>
+                                <td class="align-middle">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-dark text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                        Edit
+                                    </a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-facebook text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="User Detail">
+                                        Details
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-reddit text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
+                                        Delete
+                                    </a>
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h3 class="text-center">@ViewBag.Error</h3>
+    }
+</div>
+<div class="row d-flex justify-content-around">
+    <a class="btn btn-outline-info col-md-5 py-5 col-12 golge mb-3" asp-controller="WareHouseInventory" asp-action="Index">Inventory Information</a>
+    <a class="btn btn-outline-info col-md-5 py-5 col-12 golge mb-3" asp-controller="WareHouseShelf" asp-action="Index">Shelf Details</a>
+</div>

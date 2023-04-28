@@ -1,0 +1,79 @@
+﻿@model IEnumerable<IsTakip.Core.Classes.WareHouseClasses.WareHouseInventory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Warehouse Inventories</h1>
+
+<div class="text-center">
+    <a asp-action="Create" class="btn btn-slack text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+        New Warehouse Inventory
+    </a>
+</div>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            
+           
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Explanation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                Warehouse Detail
+            </th>
+            <th>
+                Shelf Detail
+            </th>
+            <th>
+                Customer Name 
+            </th>
+            <th>
+                Supplier Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Explanation)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+            <td>
+                    <a href="@Url.Action("Details", "Warehouse", new { id = item.WareHouseId })">@ViewBag.WarehouseList[item.WareHouseId]</a>
+            </td>
+            <td>
+                    @ViewBag.ShelfList[item.WareHouseShelfId]
+            </td>
+            <td>
+                    <a href="@Url.Action("Details", "Customer", new { id = item.CustomerId })">@ViewBag.CustomerList[item.CustomerId]</a>
+            </td>
+            <td>
+                    <a href="@Url.Action("Details", "Supplier", new { id = item.SupplierId })">@ViewBag.SupplierList[item.SupplierId]</a>
+            </td>
+                <td class="align-middle">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-dark text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            Edit
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-facebook text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="User Detail">
+                            Details
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-reddit text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
+                            Delete
+                        </a>
+                    </td>
+        </tr>
+}
+    </tbody>
+</table>

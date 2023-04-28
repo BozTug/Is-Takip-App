@@ -1,0 +1,57 @@
+﻿@model IsTakip.Core.Classes.CustomerClasses.CustomerClass
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Detail</h1>
+
+<div>
+    <h4>CustomerClass</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Explanation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Explanation)
+        </dd>
+    </dl>
+</div>
+@if (Model.Customers != null)
+{
+<table>
+        <thead>
+         <tr>
+            <th>Account Name</th>
+            <th>Adress</th>
+            <th>Phone Number</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Customers)
+        {
+            <tr>
+                <td>@item.Description</td>
+                <td>@item.Address</td>
+                <td>@item.PhoneNumber</td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div>No Data Available in terms of Customers.</div>
+}
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

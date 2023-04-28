@@ -1,0 +1,100 @@
+﻿@using static IsTakip.Core.Classes.Enum.Enums;
+@model IsTakip.Core.Classes.WareHouseClasses.WareHouseInventory
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>WareHouseInventory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WareHouseId" class="control-label">Warehose Detail</label>
+                <select asp-for="WareHouseId" class="form-control" asp-items="ViewBag.warehouse"></select>
+                <span asp-validation-for="WareHouseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WareHouseShelfId" class="control-label">Shelf Detail</label>
+                <select asp-for="WareHouseShelfId" class="form-control" asp-items="ViewBag.shelf"></select>
+                <span asp-validation-for="WareHouseShelfId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="materialType" class="control-label">Material Type</label>
+                <select class="form-control" id="materialType" name="materialType">
+                    <option value="@MaterialType.Wood">Wood</option>
+                    <option value="@MaterialType.Metal">Metal</option>
+                    <option value="@MaterialType.Paper">Paper</option>
+                    <option value="@MaterialType.Composite">Composite</option>
+                    <option value="@MaterialType.Ceramic">Ceramic</option>
+                    <option value="@MaterialType.Fabric">Fabric</option>
+                    <option value="@MaterialType.Glass">Glass</option>
+                    <option value="@MaterialType.Leather">Leather</option>
+                    <option value="@MaterialType.Plastic">Plastic</option>
+                    <option value="@MaterialType.Stone">Stone</option>
+                    <option value="@MaterialType.Other">Other</option>
+
+                </select>
+                <span asp-validation-for="materialType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="thickness" class="control-label">Thickness</label>
+                <select class="form-control" id="thickness" name="thickness">
+                    <option value="@Thickness.Thick">Thick</option>
+                    <option value="@Thickness.VeryThick">Very Thick</option>
+                    <option value="@Thickness.Medium">Medium</option>
+                    <option value="@Thickness.Thin">Thin</option>
+                </select>
+                <span asp-validation-for="thickness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Length" class="control-label"></label>
+                <input asp-for="Length" class="form-control" />
+                <span asp-validation-for="Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Explanation" class="control-label"></label>
+                <input asp-for="Explanation" class="form-control" />
+                <span asp-validation-for="Explanation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label">Customer Name</label>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.customer"></select>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierId" class="control-label">Supplier Name</label>
+                <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.supplier"></select>
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

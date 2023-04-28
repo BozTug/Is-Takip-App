@@ -1,0 +1,71 @@
+﻿@model IsTakip.Core.Classes.SupplierClass.Supplier
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Supplier</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            Phone Number
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Explanation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Explanation)
+        </dd>
+    </dl>
+</div>
+@if (Model.businesses != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Account Name</th>
+                <th>Offer Number</th>
+                <th>Business Note</th>
+                <th>Production Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.businesses)
+            {
+                <tr>
+                    <td>@item.Customer</td>
+                    <td>@item.OfferNo</td>
+                    <td>@item.BusinessNote</td>
+                    <td>@item.ProductionOrder</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div>No Data Available in terms of Customers.</div>
+}
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

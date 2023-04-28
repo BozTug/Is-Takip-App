@@ -1,0 +1,60 @@
+﻿@model IsTakip.Core.Classes.UserClasses.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class = "col-sm-2">
+            Related Customer Name
+        </dt>
+        <dd class = "col-sm-10">
+           @ViewBag.CustomerList[Model.CustomerId]
+        </dd>
+        <dt class = "col-sm-2">
+            User Code
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserCode)
+        </dd>
+        <dt class = "col-sm-2">
+            User Password
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserPassword)
+        </dd>
+        <dt class = "col-sm-2">
+            Role Descriptiion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RoleDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            Mail Notification
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MailNotification)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,91 @@
+﻿@using static IsTakip.Core.Classes.Enum.Enums;
+@model IsTakip.Core.Classes.BuinessClasses.Business
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Business</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label">Customer Name</label>
+                <select asp-for="CustomerId" class ="form-control" asp-items="ViewBag.customers"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfferType" class="control-label">Offer Type</label>
+                <select class="form-control" id="offer-type" name="OfferType">
+                    <option value="@OfferType.WithOffer">With Offer</option>
+                    <option value="@OfferType.WithoutOffer">Without Offer</option>
+                </select>
+                <span asp-validation-for="OfferType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfferNo" class="control-label">Offer No</label>
+                <input asp-for="OfferNo" class="form-control" />
+                <span asp-validation-for="OfferNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Price</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndNoticeSituation" class="control-label">End Notice Situation</label>
+                <select class="form-control" id="end-notice-situation" name="EndNoticeSituation">
+                    <option value="@EndNoticeSituation.Yes">Yes</option>
+                    <option value="@EndNoticeSituation.No">No</option>
+                </select>
+                <span asp-validation-for="EndNoticeSituation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessPriority" class="control-label">Priority</label>
+                <select class="form-control" id="business-priority" name="BusinessPriority">
+                    <option value="@BusinessPriority.Low">Low</option>
+                    <option value="@BusinessPriority.High">High</option>
+                    <option value="@BusinessPriority.Middle">Middle</option>
+                </select>
+                <span asp-validation-for="BusinessPriority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerOrderNo" class="control-label">Customer Order No</label>
+                <input asp-for="CustomerOrderNo" class="form-control" />
+                <span asp-validation-for="CustomerOrderNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessNote" class="control-label">Business Note</label>
+                <input asp-for="BusinessNote" class="form-control" />
+                <span asp-validation-for="BusinessNote" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Workmanship" class="control-label">Workmanship</label>
+                <select class="form-control" id="workmanship" name="Workmanship">
+                    <option value="@Workmanship.Yes">Yes</option>
+                    <option value="@Workmanship.No">No</option>
+                </select>
+                <span asp-validation-for="Workmanship" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaterialNote" class="control-label">Material Note</label>
+                <input asp-for="MaterialNote" class="form-control" />
+                <span asp-validation-for="MaterialNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierId" class="control-label">Supplier Name</label>
+                <select asp-for="SupplierId" class ="form-control" asp-items="ViewBag.suppliers"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-slack" />
+                <a class="btn btn-pinterest" asp-action="Index">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

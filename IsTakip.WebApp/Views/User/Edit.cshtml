@@ -1,0 +1,75 @@
+﻿@using static IsTakip.Core.Classes.Enum.Enums;
+@model IsTakip.Core.Classes.UserClasses.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label">Related Customer Name</label>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.customers"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCode" class="control-label">User Code</label>
+                <input asp-for="UserCode" class="form-control" />
+                <span asp-validation-for="UserCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserPassword" class="control-label">User Password</label>
+                <input asp-for="UserPassword" class="form-control" />
+                <span asp-validation-for="UserPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoleDescription" class="control-label">Role Description</label>
+                <select class="form-control" id="roleDescription" name="RoleDescription">
+                    <option value="@RoleDescription.Manager">Manager</option>
+                    <option value="@RoleDescription.Marketing">Marketing</option>
+                    <option value="@RoleDescription.Warehouse">Warehouse</option>
+                    <option value="@RoleDescription.CustomerService">Customer Service</option>
+                    <option value="@RoleDescription.HumanResources">Human Resources</option>
+                    <option value="@RoleDescription.Accountant">Accountant</option>
+                    <option value="@RoleDescription.Admin">Admin</option>
+                    <option value="@RoleDescription.IT">IT</option>
+                    <option value="@RoleDescription.Operations">Operations</option>
+                    <option value="@RoleDescription.TechnicalSupport">Technical Support</option>
+                    <option value="@RoleDescription.Sales">Sales</option>
+                    <option value="@RoleDescription.Security">Security</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailNotification" class="control-label">Mail Notification</label>
+                <select class="form-control" id="mailNotification" name="MailNotification">
+                    <option value="@MailNotification.Yes">Yes</option>
+                    <option value="@MailNotification.No">No</option>
+                </select>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

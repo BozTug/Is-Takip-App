@@ -1,0 +1,84 @@
+﻿@model IsTakip.Core.Classes.WareHouseClasses.WareHouseInventory
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>WareHouseInventory</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Material Type
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.materialType)
+        </dd>
+        <dt class = "col-sm-2">
+           Thickness
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.thickness)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Explanation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Explanation)
+        </dd>
+        <dt class = "col-sm-2">
+            Warehouse Detail
+        </dt>
+        <dd class = "col-sm-10">
+            @ViewBag.WarehouseList[Model.WareHouseId]
+        </dd>
+        <dt class = "col-sm-2">
+            Shelf Detail
+        </dt>
+        <dd class = "col-sm-10">
+            @ViewBag.ShelfList[Model.WareHouseShelfId]
+        </dd>
+        <dt class = "col-sm-2">
+            Customer Name
+        </dt>
+        <dd class = "col-sm-10">
+            @ViewBag.CustomerList[Model.CustomerId]
+        </dd>
+        <dt class = "col-sm-2">
+            Supplier Name
+        </dt>
+        <dd class = "col-sm-10">
+            @ViewBag.SupplierList[Model.SupplierId]
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

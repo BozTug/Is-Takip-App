@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IsTakip.Core.Classes.BuinessClasses.Jobfile>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Job File</h1>
+
+<div class="text-center">
+    <a asp-action="Create" class="btn btn-slack text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+        New Job File
+    </a>
+</div>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>
+                Jobfile Name
+            </th>
+            <th>
+                Customer Order No
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobfileName)
+            </td>
+            <td>
+                    <a href="@Url.Action("Details", "Business", new { id = item.BusinessId })">@ViewBag.BusinessList[item.BusinessId]</a>
+            </td>
+            <td class="align-middle">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-dark text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        Edit
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-reddit text-white font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
+                        Delete
+                    </a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
